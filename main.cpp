@@ -4,9 +4,9 @@
 int main() {
     MSIKeyboard keyboard;
     keyboard.SetMode("gaming");
-    keyboard.SetRegion(Region("left", "red", "high"));
-    keyboard.SetRegion(Region("middle", "orange", "high"));
-    keyboard.SetRegion(Region("right", "purple", "high"));
+    keyboard.SetRegion(Region("left", "white", "high"));
+    keyboard.SetRegion(Region("middle", "purple", "high"));
+    keyboard.SetRegion(Region("right", "red", "high"));
     keyboard.Send();
 
     return 0;
