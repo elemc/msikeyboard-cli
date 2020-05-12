@@ -6,21 +6,29 @@
 #define MSIKEYBOARD_CLI_REGION_H
 
 #include <string>
+#include <msikeyboard.h>
 
 class Region {
 public:
     Region();
     Region(std::string name, std::string color, std::string intensity);
-    Region(std::string raw);
+    explicit Region(std::string raw);
+    Region(std::string name, unsigned int r, unsigned int g, unsigned int b);
 
     std::string Name();
     std::string Color();
     std::string Intensity();
 
+    RGB GetRGB() const;
+
 private:
     std::string name;
     std::string color;
     std::string intensity;
+
+    unsigned int rgbR;
+    unsigned int rgbG;
+    unsigned int rgbB;
 };
 
 

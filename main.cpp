@@ -7,10 +7,10 @@ using namespace std;
 namespace po = boost::program_options;
 
 struct options {
-    bool help;
+    bool help{};
     string mode;
     vector<string> colors;
-    //vector<string> rgbs;
+    vector<string> RGBs;
 };
 
 void initProgramOptions(options *opts, int argc, char **argv);
@@ -24,11 +24,21 @@ int main(int argc, char **argv) {
     bool modified;
 
     MSIKeyboard keyboard;
-    if ( opts.mode != "" ) {
+
+    // set mode
+    if ( !opts.mode.empty() ) {
         keyboard.SetMode(opts.mode);
         modified = true;
     }
+
+    // set colors by names
     for ( string value : opts.colors) {
+        keyboard.SetRegion(Region(std::move(value)));
+        modified = true;
+    }
+
+    // set colors by RGB value
+    for (string value : opts.RGBs) {
         keyboard.SetRegion(Region(std::move(value)));
         modified = true;
     }
@@ -39,11 +49,19 @@ int main(int argc, char **argv) {
 }
 
 void initProgramOptions(options *opts, int argc, char **argv) {
+    string modeHelp = "set mode (" + MSIKeyboard::GetModes() + ")";
+    string colorsHelp = "set colors, as example '<region name>:<color name>:<intensity name>'. Regions: " +
+            MSIKeyboard::GetRegions() +
+            ". Colors: " + MSIKeyboard::GetColors() +
+            ". Intensities: " + MSIKeyboard::GetIntensities() + ".";
+    string rgbHelp = "set colors, as example '<region name>:<R>:<G>:<B>'. Regions: " +
+                        MSIKeyboard::GetRegions() + ".";
     po::options_description desc("Main options");
     desc.add_options()
             ("help,h", "produce this message")
-            ("mode,m", po::value<string>(&opts->mode), "set mode")
-            ("colors,c", po::value<vector<string>>(&opts->colors), "set colors, as example '<region name>:<color name>:<intensity name>'")
+            ("mode,m", po::value<string>(&opts->mode), modeHelp.c_str())
+            ("colors,c", po::value<vector<string>>(&opts->colors), colorsHelp.c_str())
+            ("rgb", po::value<vector<string>>(&opts->RGBs), rgbHelp.c_str())
     ;
     po::variables_map vm;
     po::parsed_options parsed = po::command_line_parser(argc, argv).options(desc).allow_unregistered().run();

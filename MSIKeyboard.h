@@ -13,11 +13,17 @@ public:
     void SetRegion(Region region);
     void Send();
     void SetMode(std::string m);
-    std::string GetMode();
+
+    static std::string GetModes();
+    static std::string GetRegions();
+    static std::string GetColors();
+    static std::string GetIntensities();
 
 private:
     std::map<std::string, Region> regions;
     std::string mode;
+
+    static std::string getList(char **data, size_t size);
 };
 
 
