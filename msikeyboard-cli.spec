@@ -39,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
+%license LICENSE
 %{_bindir}/msikeyboard_cli
 
 %files systemd
