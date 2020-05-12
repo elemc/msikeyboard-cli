@@ -1,0 +1,10 @@
+[Unit]
+Description=MSI keyboard LED colors change service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/sysconfig/msikeyboard-cli
+ExecStart=/usr/bin/msikeyboard_cli $OPTIONS
+
+[Install]
+WantedBy=multi-user.target

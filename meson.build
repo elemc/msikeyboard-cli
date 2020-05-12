@@ -19,6 +19,10 @@ boost_dep = dependency(
         'program_options',
     ]
 )
+systemd_dep = dependency('systemd')
+
+servicedir = systemd_dep.get_pkgconfig_variable('systemdsystemunitdir')
+
 
 bin = executable(
     'msikeyboard_cli', sources: [
@@ -34,3 +38,7 @@ bin = executable(
     ],
     install: true
 )
+
+install_data('msikeyboard-cli.service', install_dir: servicedir)
+confdir = get_option('sysconfdir')
+install_data('msikeyboard-cli.options', install_dir: confdir + '/sysconfig', rename: 'msikeyboard-cli')

@@ -7,10 +7,11 @@ License:        GPLv3
 URL:            https://elemc.name
 Source0:        https://repo.elemc.name/sources/%{name}-%{version}.tar.xz
 
-BuildRequires:  hidapi-devel
+BuildRequires:  boost-devel
 BuildRequires:  meson
 BuildRequires:  gcc
 BuildRequires:  libmsikeyboard-devel
+BuildRequires:  systemd-devel
 
 %description
 CLI application for change LED color, intensity and modes on MSI keyboards
@@ -41,6 +42,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/msikeyboard_cli
 
 %files systemd
+%{_unitdir}/%{name}.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+
+%post systemd
+%systemd_post %{name}.service
+
+%preun systemd
+%systemd_preun %{name}.service
+
+%postun systemd
+%systemd_postun %{name}.service
 
 %changelog
 * Tue May 12 2020 Alexei Panov <me AT elemc DOT name> 0.1-1
