@@ -11,6 +11,7 @@ class Region {
 public:
     Region();
     Region(std::string name, std::string color, std::string intensity);
+    Region(std::string raw);
 
     std::string Name();
     std::string Color();

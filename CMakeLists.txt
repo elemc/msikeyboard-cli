@@ -8,11 +8,11 @@ if ( NOT CMAKE_MODULE_PATH )
 endif( NOT CMAKE_MODULE_PATH)
 
 find_package (libmsikeyboard REQUIRED)
-find_package (Boost REQUIRED)
+find_package (Boost REQUIRED OPTIONAL_COMPONENTS program_options algorithm)
 
-message("Include path: ${libmsikeyboard_INCLUDE_DIRS}")
+message("Include path: ${libmsikeyboard_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS}")
 
-include_directories(${libmsikeyboard_INCLUDE_DIRS})
+include_directories(${libmsikeyboard_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
 add_executable(msikeyboard_cli main.cpp MSIKeyboard.cpp MSIKeyboard.h Region.cpp Region.h)
-target_link_libraries (${PROJECT_NAME} ${libmsikeyboard_LIBRARIES})
+target_link_libraries (${PROJECT_NAME} ${libmsikeyboard_LIBRARIES} ${Boost_PROGRAM_OPTIONS_LIBRARY})
