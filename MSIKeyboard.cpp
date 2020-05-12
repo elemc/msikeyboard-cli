@@ -1,5 +1,5 @@
 #include "MSIKeyboard.h"
-#include <msikeyboard.h>
+#include <msikeyboard/msikeyboard.h>
 #include <utility>
 
 MSIKeyboard::MSIKeyboard() {

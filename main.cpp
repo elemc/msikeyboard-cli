@@ -7,7 +7,7 @@ using namespace std;
 namespace po = boost::program_options;
 
 struct options {
-    bool help{};
+    bool help;
     string mode;
     vector<string> colors;
     vector<string> RGBs;
