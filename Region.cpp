@@ -5,18 +5,18 @@
 #include "Region.h"
 #include <utility>
 
-Region::Region(string name, string color, string intensity)
+Region::Region(std::string name, std::string color, std::string intensity)
         : name(std::move(name)), color(std::move(color)), intensity(std::move(intensity)) {}
 Region::Region() : name(""), color(""), intensity("") {}
 
-string Region::Name() {
+std::string Region::Name() {
     return this->name;
 }
 
-string Region::Color() {
+std::string Region::Color() {
     return this->color;
 }
 
-string Region::Intensity() {
+std::string Region::Intensity() {
     return this->intensity;
 }

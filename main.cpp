@@ -1,5 +1,6 @@
-#include <iostream>
 #include "MSIKeyboard.h"
+
+using namespace std;
 
 int main() {
     MSIKeyboard keyboard;

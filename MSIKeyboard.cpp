@@ -1,6 +1,5 @@
 #include "MSIKeyboard.h"
-#include <msikeyboard/msikeyboard.h>
-
+#include <msikeyboard.h>
 #include <utility>
 
 MSIKeyboard::MSIKeyboard() {
@@ -27,11 +26,11 @@ void MSIKeyboard::Send() {
     }
 }
 
-void MSIKeyboard::SetMode(string m) {
+void MSIKeyboard::SetMode(std::string m) {
     this->mode = std::move(m);
 }
 
-string MSIKeyboard::GetMode() {
+std::string MSIKeyboard::GetMode() {
     return this->mode;
 }
 

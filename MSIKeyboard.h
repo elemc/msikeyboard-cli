@@ -3,7 +3,6 @@
 
 #include <map>
 #include <string>
-#include <hidapi/hidapi.h>
 #include "Region.h"
 
 
@@ -13,12 +12,12 @@ public:
     ~MSIKeyboard();
     void SetRegion(Region region);
     void Send();
-    void SetMode(string m);
-    string GetMode();
+    void SetMode(std::string m);
+    std::string GetMode();
 
 private:
-    map<string, Region> regions;
-    string mode;
+    std::map<std::string, Region> regions;
+    std::string mode;
 };
 
 

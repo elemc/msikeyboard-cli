@@ -5,23 +5,21 @@
 #ifndef MSIKEYBOARD_CLI_REGION_H
 #define MSIKEYBOARD_CLI_REGION_H
 
-using namespace std;
-
 #include <string>
 
 class Region {
 public:
     Region();
-    Region(string name, string color, string intensity);
+    Region(std::string name, std::string color, std::string intensity);
 
-    string Name();
-    string Color();
-    string Intensity();
+    std::string Name();
+    std::string Color();
+    std::string Intensity();
 
 private:
-    string name;
-    string color;
-    string intensity;
+    std::string name;
+    std::string color;
+    std::string intensity;
 };
 
 
