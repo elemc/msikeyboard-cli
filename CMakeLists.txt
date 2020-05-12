@@ -8,7 +8,7 @@ if ( NOT CMAKE_MODULE_PATH )
 endif( NOT CMAKE_MODULE_PATH)
 
 find_package (libmsikeyboard REQUIRED)
-find_package (Boost REQUIRED OPTIONAL_COMPONENTS program_options algorithm)
+find_package (Boost REQUIRED OPTIONAL_COMPONENTS program_options)
 
 message("Include path: ${libmsikeyboard_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS}")
 
