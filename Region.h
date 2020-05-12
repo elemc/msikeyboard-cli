@@ -6,7 +6,7 @@
 #define MSIKEYBOARD_CLI_REGION_H
 
 #include <string>
-#include <msikeyboard.h>
+#include <msikeyboard/msikeyboard.h>
 
 class Region {
 public:
