@@ -15,3 +15,33 @@ Dependencies:
 * systemd support (if you use meson) https://www.freedesktop.org/wiki/Software/systemd/
 
  RPM packages for EPEL and Fedora https://copr.fedorainfracloud.org/coprs/elemc/msikeyboard/
+ 
+ Build & install
+ ---------------
+ for meson
+ 
+        $ git clone https://github.com/elemc/msikeyboard-cli.git
+        $ cd msikeyboard-cli
+        $ mkdir build && cd build
+        $ meson ..
+        $ ninja
+        $ sudo ninja install
+        
+or for cmake
+        
+        $ git clone https://github.com/elemc/msikeyboard-cli.git
+        $ cd msikeyboard-cli
+        $ mkdir build && cd build
+        $ cmake ..
+        $ make
+        $ sudo make install
+
+Usage
+-----
+
+        $ msikeyboard_cli --mode=normal --colors=left:white:high --colors=right:white:high --colors=middle:white:high
+        
+colors:
+* left, right and middle - is a keyboard regions
+* white - is a color name
+* high - intensity
