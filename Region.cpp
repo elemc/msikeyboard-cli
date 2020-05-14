@@ -6,6 +6,7 @@
 #include <utility>
 #include <boost/algorithm/string.hpp>
 #include <vector>
+#include <stdexcept>
 
 Region::Region(std::string name, std::string color, std::string intensity)
         : name(std::move(name)), color(std::move(color)), intensity(std::move(intensity)) {}

@@ -1,6 +1,7 @@
 #include "MSIKeyboard.h"
 #include <msikeyboard/msikeyboard.h>
 #include <utility>
+#include <stdexcept>
 
 MSIKeyboard::MSIKeyboard() {
     init_msi_keyboard();
