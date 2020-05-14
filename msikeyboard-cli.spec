@@ -9,7 +9,7 @@ Source0:        https://repo.elemc.name/sources/%{name}-%{version}.tar.xz
 
 BuildRequires:  boost-devel
 BuildRequires:  meson
-BuildRequires:  gcc
+BuildRequires:  gcc gcc-c++
 BuildRequires:  libmsikeyboard-devel
 BuildRequires:  systemd-devel
 
