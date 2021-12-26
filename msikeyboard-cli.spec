@@ -1,11 +1,11 @@
 Name:           msikeyboard-cli
 Version:        0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        CLI application for change LED color, intensity and mode on MSI keyboards
 
 License:        GPLv3
 URL:            https://elemc.name
-Source0:        https://repo.elemc.name/sources/%{name}-%{version}.tar.xz
+Source0:        https://elemc.name/sources/%{name}-%{version}.tar.xz
 
 BuildRequires:  boost-devel
 BuildRequires:  meson
@@ -56,5 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %systemd_postun %{name}.service
 
 %changelog
+* Sun Dec 26 2021 Alexei Panov <me AT elemc DOT name> 0.1-2
+- Changed URLs 
+
 * Tue May 12 2020 Alexei Panov <me AT elemc DOT name> 0.1-1
 - Initial build
